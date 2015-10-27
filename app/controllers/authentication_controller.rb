@@ -1,4 +1,12 @@
 class AuthenticationController < ApplicationController
+  #### Things which i could have done
+  ### Instead of using sti if we could use polymorphic associations it would be a lot better
+  ### Using Concerns and putting error handlers and errors and raise exception if record not found
+  ### The code gets cleaner
+  ### We could have used service objects to keep the controllers short as possible.
+  ### bcrypt is an excellent gem for encrypting. I could not use as i have restricted the column_type to 30chars
+  ### TDD would be the better way to approach the problem. :)
+
   def create
   	user_object = Authentication.new(user_params)
   	if user_object.save
