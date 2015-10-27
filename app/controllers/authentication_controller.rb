@@ -1,6 +1,5 @@
 class AuthenticationController < ApplicationController
   def create
-    debugger
   	user_object = Authentication.new(user_params)
   	if user_object.save!
   		render json: { message: 'User has been created successfully', status: 200}
@@ -12,7 +11,6 @@ class AuthenticationController < ApplicationController
 
   def login
   	u = Authentication.where(login_params).first
-    debugger
   	if u.present?
   		render json: {message:'Login Successful', user_id: u.id}
   	else
