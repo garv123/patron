@@ -1,7 +1,8 @@
-class UsersController < ApplicationController
+class AuthenticationController < ApplicationController
   def create
-  	user_object = User.new(user_params)
-  	if user_object.save?
+    debugger
+  	user_object = Authentication.new(user_params)
+  	if user_object.save!
   		render json: { message: 'User has been created successfully', status: 200}
   	else
   		render json: { message: user_object.error_messages, status: 400}
@@ -10,7 +11,8 @@ class UsersController < ApplicationController
   end
 
   def login
-  	u = User.where(login_params)
+  	u = Authentication.where(login_params).first
+    debugger
   	if u.present?
   		render json: {message:'Login Successful', user_id: u.id}
   	else
