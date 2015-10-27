@@ -1,10 +1,10 @@
 class AuthenticationController < ApplicationController
   def create
   	user_object = Authentication.new(user_params)
-  	if user_object.save!
+  	if user_object.save
   		render json: { message: 'User has been created successfully', status: 200}
   	else
-  		render json: { message: user_object.error_messages, status: 400}
+  		render json: { message: user_object.errors, status: 400}
   	end
 
   end
