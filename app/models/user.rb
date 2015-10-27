@@ -5,7 +5,7 @@
 #  id       :integer          not null, primary key
 #  email    :string
 #  password :string
-#  type     :integer
+#  type     :string
 #
 
 class User < ActiveRecord::Base
